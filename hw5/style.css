@@ -1,0 +1,41 @@
+/* COM360 — Flexbox assignment, target image emailed Oct 21, 2026. */
+/* At 1400px: [1 | 2] / [3 | 4 | 5] / [6] */
+* {
+    margin: 0; /* Included in FuMing's starter code */
+    box-sizing: border-box;
+}
+
+body {
+    background: url("https://cdn.imgchest.com/files/345xc9eon7w.png");
+    opacity: .5;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 1400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container > * {
+    background-color: lightblue;
+    font-size: 10rem;
+    color: blue;
+    border: 2px dashed blue;
+    height: 200px;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+/* The flex bases add up to 1400px per row including 10px gaps. */
+.box1 { flex-basis: 195px; }
+.box2 { flex-basis: 1195px; }
+.box3 { flex-basis: 1160px; }
+.box4,
+.box5 { flex-basis: max(110px, calc(330px - 16vw)); }
+.box6 { flex-basis: 1400px; }
+
+/* Note: box4/box5 have 110px bases at 1400px; their bases
+   increase as the screen gets narrower so they stack at 500px.
+   This uses flex-basis only: no width declarations or @media. */
